@@ -6,7 +6,7 @@ A one-page wedding invitation built with Next.js App Router.
 
 The current photo is `public/assets/Ameena Abdulla.jpeg`. Replace that file to use a different image; JPEG, PNG, WebP, and AVIF are supported by the page.
 
-Background music is loaded from `public/assets/Ehsaas Faheem Abdullah 320 Kbps.mp3`. The page attempts to start it automatically; if the browser blocks autoplay, visitors can tap **Play music**. The floating control also pauses playback.
+Background music is loaded from `public/assets/Ehsaas Faheem Abdullah 320 Kbps.mp3`. The page attempts to start it automatically; if the browser blocks autoplay, the first tap or key press starts it. The floating control can also start or pause playback.
 
 ## Run locally
 

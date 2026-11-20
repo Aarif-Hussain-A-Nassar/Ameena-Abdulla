@@ -14,7 +14,12 @@ export default function MusicPlayer() {
     audio.volume = 0.38;
     let stillMounted = true;
 
-    audio.play().catch(() => {
+    const tryPlay = () => audio.play().then(() => {
+      if (stillMounted) {
+        setIsPlaying(true);
+        setAutoplayBlocked(false);
+      }
+    }).catch(() => {
       // Browsers commonly block sound until the visitor taps the play button.
       if (stillMounted) {
         setIsPlaying(false);
@@ -22,8 +27,20 @@ export default function MusicPlayer() {
       }
     });
 
+    const startOnFirstInteraction = () => {
+      void tryPlay();
+      window.removeEventListener("pointerdown", startOnFirstInteraction);
+      window.removeEventListener("keydown", startOnFirstInteraction);
+    };
+
+    window.addEventListener("pointerdown", startOnFirstInteraction, { once: true });
+    window.addEventListener("keydown", startOnFirstInteraction, { once: true });
+    void tryPlay();
+
     return () => {
       stillMounted = false;
+      window.removeEventListener("pointerdown", startOnFirstInteraction);
+      window.removeEventListener("keydown", startOnFirstInteraction);
     };
   }, []);
 
@@ -40,6 +57,7 @@ export default function MusicPlayer() {
       await audio.play();
     } catch {
       setIsPlaying(false);
+      setAutoplayBlocked(true);
     }
   }
 
@@ -65,7 +83,7 @@ export default function MusicPlayer() {
         aria-pressed={isPlaying}
       >
         <span className="music-icon" aria-hidden="true">{isPlaying ? "Ⅱ" : "♫"}</span>
-        <span>{isPlaying ? "Music playing" : autoplayBlocked ? "Tap to start music" : "Play music"}</span>
+        <span>{isPlaying ? "Music playing" : autoplayBlocked ? "Tap for music" : "Play music"}</span>
         <span className="music-track">Ehsaas</span>
       </button>
     </aside>
