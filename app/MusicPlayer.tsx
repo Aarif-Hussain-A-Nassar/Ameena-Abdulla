@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 export default function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [autoplayBlocked, setAutoplayBlocked] = useState(false);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -15,7 +16,10 @@ export default function MusicPlayer() {
 
     audio.play().catch(() => {
       // Browsers commonly block sound until the visitor taps the play button.
-      if (stillMounted) setIsPlaying(false);
+      if (stillMounted) {
+        setIsPlaying(false);
+        setAutoplayBlocked(true);
+      }
     });
 
     return () => {
@@ -44,9 +48,13 @@ export default function MusicPlayer() {
       <audio
         ref={audioRef}
         src="/assets/Ehsaas%20Faheem%20Abdullah%20320%20Kbps.mp3"
+        autoPlay
         loop
-        preload="none"
-        onPlay={() => setIsPlaying(true)}
+        preload="auto"
+        onPlay={() => {
+          setIsPlaying(true);
+          setAutoplayBlocked(false);
+        }}
         onPause={() => setIsPlaying(false)}
       />
       <button
@@ -57,7 +65,7 @@ export default function MusicPlayer() {
         aria-pressed={isPlaying}
       >
         <span className="music-icon" aria-hidden="true">{isPlaying ? "Ⅱ" : "♫"}</span>
-        <span>{isPlaying ? "Music playing" : "Play music"}</span>
+        <span>{isPlaying ? "Music playing" : autoplayBlocked ? "Tap to start music" : "Play music"}</span>
         <span className="music-track">Ehsaas</span>
       </button>
     </aside>
