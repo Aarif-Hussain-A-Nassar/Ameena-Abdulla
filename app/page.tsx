@@ -79,6 +79,15 @@ export default function Home() {
           <p className="detail-label">The place</p>
           <h2>Zamra International<br />Convention Centre</h2>
           <p className="venue-note">We look forward to celebrating with you</p>
+          <a
+            className="venue-map-link"
+            href="https://maps.app.goo.gl/Ktq5jHAjegfyS1xN7"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Zamra International Convention Centre in Google Maps"
+          >
+            View on Google Maps <span aria-hidden="true">↗</span>
+          </a>
         </div>
 
         <div className="family-card family-card--groom">
