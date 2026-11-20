@@ -1,27 +1,16 @@
-"use client";
-
-import { useState } from "react";
+import Image from "next/image";
 
 function PhotoFrame() {
-  const [photoLoaded, setPhotoLoaded] = useState(true);
-
   return (
-    <div className={`photo-frame${photoLoaded ? "" : " photo-frame--empty"}`}>
-      {photoLoaded ? (
-        // Add the couple's photo at public/assets/couple.jpg to fill this frame.
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src="/assets/couple.jpg"
-          alt="Ameena and Abdulla"
-          onError={() => setPhotoLoaded(false)}
-        />
-      ) : (
-        <div className="photo-placeholder" aria-label="Couple photo placeholder">
-          <span className="placeholder-flower" aria-hidden="true">✿</span>
-          <span className="placeholder-monogram">A <i>&amp;</i> A</span>
-          <span className="placeholder-caption">A day to remember</span>
-        </div>
-      )}
+    <div className="photo-frame">
+      <Image
+        className="photo-image"
+        src="/assets/Ameena%20Abdulla.jpeg"
+        alt="Ameena and Abdulla sharing a moment together"
+        fill
+        priority
+        sizes="(max-width: 640px) 72vw, (max-width: 900px) 36vw, 30vw"
+      />
       <span className="photo-corner photo-corner--tl" aria-hidden="true" />
       <span className="photo-corner photo-corner--br" aria-hidden="true" />
     </div>

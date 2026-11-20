@@ -4,7 +4,7 @@ A one-page wedding invitation built with Next.js App Router.
 
 ## Add the couple's photo
 
-Copy the image into `public/assets/` and name it `couple.jpg`. The page will show it in the portrait frame. Until then, a monogram placeholder is displayed.
+The current photo is `public/assets/Ameena Abdulla.jpeg`. Replace that file to use a different image; JPEG, PNG, WebP, and AVIF are supported by the page.
 
 ## Run locally
 
