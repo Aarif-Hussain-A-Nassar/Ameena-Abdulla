@@ -1,4 +1,5 @@
 import Image from "next/image";
+import MusicPlayer from "./MusicPlayer";
 
 function PhotoFrame() {
   return (
@@ -23,8 +24,9 @@ function Flourish() {
 
 export default function Home() {
   return (
-    <main className="invitation">
-      <div className="paper-grain" aria-hidden="true" />
+    <>
+      <main className="invitation">
+        <div className="paper-grain" aria-hidden="true" />
       <header className="topline">
         <span className="topline-mark">A <i>&amp;</i> A</span>
         <span className="topline-text">A celebration of love</span>
@@ -99,6 +101,8 @@ export default function Home() {
         <p>With love, and the blessings of our families</p>
         <span className="footer-date">AMEENA &amp; ABDULLA <i>·</i> 2026</span>
       </footer>
-    </main>
+      </main>
+      <MusicPlayer />
+    </>
   );
 }
