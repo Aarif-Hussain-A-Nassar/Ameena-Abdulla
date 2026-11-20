@@ -38,9 +38,9 @@ export default function Home() {
           <p className="eyebrow"><span /> بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ <span /></p>
           <p className="intro">With the blessings of our families</p>
           <h1 id="invite-title">
-            <span className="name name--first">Ameena</span>
+            <span className="name name--first">Amy</span>
             <span className="ampersand">&amp;</span>
-            <span className="name name--second">Abdulla</span>
+            <span className="name name--second">Allu</span>
           </h1>
           <p className="full-names">Dr. Ameena P A <span>·</span> Abdulla Srambikal</p>
           <div className="hero-divider"><span /><Flourish /><span /></div>
@@ -94,7 +94,7 @@ export default function Home() {
           <p className="detail-label">The groom</p>
           <h2>Abdulla Srambikal</h2>
           <p className="parent-label">Son of</p>
-          <p className="parents">Andul Nizar <span>&amp;</span> Katheeja</p>
+          <p className="parents">Abdul Nizar <span>&amp;</span> Katheeja</p>
         </div>
 
         <div className="family-card family-card--bride">
